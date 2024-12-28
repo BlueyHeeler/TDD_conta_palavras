@@ -68,5 +68,9 @@ std::vector<std::string> ordenar(std::vector<std::string> frases){
     return frases;
 }
 
+std::string contaPalavras(std::string path){
+    return "";
+}
+
 
 

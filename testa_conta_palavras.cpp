@@ -33,3 +33,8 @@ TEST_CASE("Teste de ordenacao do vector") {
     REQUIRE(ordenar(base) == esperado);
 }
 
+TEST_CASE("Teste final, juntado as partes") {
+    REQUIRE(contaPalavras("input.txt") == "Este: 1\no: 1\nque: 1\nserá: 1"
+                                          "\ntexto: 2\nutilizado: 1\né: 1\n");
+}
+
