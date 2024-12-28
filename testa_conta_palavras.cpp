@@ -20,7 +20,8 @@ TEST_CASE("Teste de iteracao") {
 TEST_CASE("Teste de mapping") {
     std::vector<std::string> base = {"Este", "texto", "é", "o",
         "texto", "que", "será", "utilizado"};
-    std::string esperado = "Este: 1\no: 1\nque: 1\nserá: 1\ntexto: 2\nutilizado: 1\né: 1\n";
+    std::string esperado = "Este: 1\no: 1\nque: 1\nserá: 1"
+                            "\ntexto: 2\nutilizado: 1\né: 1\n";
     REQUIRE(mapping(base) == esperado);
 }
 

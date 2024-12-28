@@ -45,11 +45,11 @@ std::vector<std::string> iteraTXT(std::string frase) {
     return ans;
 }
 
-std::string mapping(std::vector<std::string> frases){
+std::string mapping(std::vector<std::string> frases) {
     std::string ans;
     std::map<std::string, int> map;
-    for(std::string frase: frases){
-        if(map[frase])
+    for (std::string frase : frases) {
+        if (map[frase])
             map[frase] += 1;
         else
             map[frase] = 1;
