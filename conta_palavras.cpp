@@ -69,7 +69,7 @@ std::vector<std::string> ordenar(std::vector<std::string> frases){
 }
 
 std::string contaPalavras(std::string path){
-    return "";
+    return mapping(ordenar(iteraTXT(abrirTXT(path))));
 }
 
 
