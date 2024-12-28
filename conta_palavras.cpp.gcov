@@ -1,0 +1,77 @@
+        -:    0:Source:conta_palavras.cpp
+        -:    1:// Copyright 2024 <Erick>
+        -:    2:#include "./conta_palavras.hpp"
+        -:    3:#include <iostream>
+        -:    4:#include <string>
+        -:    5:#include <fstream>
+        -:    6:#include <vector>
+        -:    7:#include <map>
+        -:    8:#include <algorithm>
+        -:    9:
+        3:   10:std::string abrirTXT(std::string path) {
+        3:   11:    std::ifstream inputFile("input.txt");
+        -:   12:
+        3:   13:    if (!inputFile.is_open())
+    #####:   14:        return "Erro ao abrir o arquivo!\n";
+        -:   15:
+        3:   16:    std::string frase;
+        3:   17:    std::string linha;
+        6:   18:    while (std::getline(inputFile, linha))
+        3:   19:        frase += linha;
+        -:   20:
+        3:   21:    inputFile.close();
+        3:   22:    return frase;
+        3:   23:}
+        -:   24:
+        2:   25:std::vector<std::string> iteraTXT(std::string frase) {
+        2:   26:    std::vector<std::string> ans;
+        2:   27:    std::string palavra;
+        2:   28:    auto it = frase.begin();
+        -:   29:
+       20:   30:    while (it != frase.end()) {
+       30:   31:        while (it != frase.end() && std::isspace(*it)) {
+       14:   32:            ++it;
+        -:   33:        }
+        -:   34:
+       16:   35:        palavra.clear();
+       84:   36:        while (it != frase.end() && !std::isspace(*it)) {
+       68:   37:            palavra += *it;
+       68:   38:            ++it;
+        -:   39:        }
+        -:   40:
+       16:   41:        if (!palavra.empty()) {
+       16:   42:            ans.push_back(palavra);
+        -:   43:        }
+        -:   44:    }
+        -:   45:
+        4:   46:    return ans;
+        2:   47:}
+        -:   48:
+        2:   49:std::string mapping(std::vector<std::string> frases) {
+        2:   50:    std::string ans;
+        2:   51:    std::map<std::string, int> map;
+       18:   52:    for (std::string frase : frases) {
+       16:   53:        if (map[frase])
+        2:   54:            map[frase] += 1;
+        -:   55:        else
+       14:   56:            map[frase] = 1;
+       16:   57:    }
+        2:   58:    auto it = map.begin();
+       16:   59:    while (it != map.end()) {
+       14:   60:        ans += it->first + ": " + std::to_string(it->second) + "\n";
+       14:   61:        it++;
+        -:   62:    }
+        4:   63:    return ans;
+        2:   64:}
+        -:   65:
+        2:   66:std::vector<std::string> ordenar(std::vector<std::string> frases){
+        2:   67:    std::sort(frases.begin(), frases.end());
+        2:   68:    return frases;
+        -:   69:}
+        -:   70:
+        1:   71:std::string contaPalavras(std::string path){
+        1:   72:    return mapping(ordenar(iteraTXT(abrirTXT(path))));
+        -:   73:}
+        -:   74:
+        -:   75:
+        -:   76:
