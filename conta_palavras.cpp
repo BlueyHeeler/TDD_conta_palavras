@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 std::string abrirTXT(std::string path) {
     std::ifstream inputFile("input.txt");
@@ -62,8 +63,9 @@ std::string mapping(std::vector<std::string> frases) {
     return ans;
 }
 
-std::vector<std::string> ordenar(std::vector<std::string>){
-    return {};
+std::vector<std::string> ordenar(std::vector<std::string> frases){
+    std::sort(frases.begin(), frases.end());
+    return frases;
 }
 
 
