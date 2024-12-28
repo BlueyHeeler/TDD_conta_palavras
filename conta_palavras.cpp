@@ -62,5 +62,9 @@ std::string mapping(std::vector<std::string> frases) {
     return ans;
 }
 
+std::vector<std::string> ordenar(std::vector<std::string>){
+    return {};
+}
+
 
 

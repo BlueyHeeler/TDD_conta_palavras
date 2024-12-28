@@ -25,3 +25,11 @@ TEST_CASE("Teste de mapping") {
     REQUIRE(mapping(base) == esperado);
 }
 
+TEST_CASE("Teste de ordenacao do vector") {
+    std::vector<std::string> base={"Este", "texto", "é", "o",
+                                   "texto", "que", "será", "utilizado"};
+    std::vector<std::string> esperado ={"é", "Este", "o", "que",
+                                        "será", "texto","utilizado"};
+    REQUIRE(ordenar(base) == esperado);
+}
+
