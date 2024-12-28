@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 std::string abrirTXT(std::string path) {
     std::ifstream inputFile("input.txt");
@@ -17,6 +18,10 @@ std::string abrirTXT(std::string path) {
 
     inputFile.close();
     return frase;
+}
+
+std::vector<std::string> iteraTXT(std::string frase){
+    return {};
 }
 
 
