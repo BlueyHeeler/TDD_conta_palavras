@@ -63,12 +63,12 @@ std::string mapping(std::vector<std::string> frases) {
     return ans;
 }
 
-std::vector<std::string> ordenar(std::vector<std::string> frases){
+std::vector<std::string> ordenar(std::vector<std::string> frases) {
     std::sort(frases.begin(), frases.end());
     return frases;
 }
 
-std::string contaPalavras(std::string path){
+std::string contaPalavras(std::string path) {
     return mapping(ordenar(iteraTXT(abrirTXT(path))));
 }
 
