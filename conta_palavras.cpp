@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <map>
 
 std::string abrirTXT(std::string path) {
     std::ifstream inputFile("input.txt");
@@ -44,8 +45,21 @@ std::vector<std::string> iteraTXT(std::string frase) {
     return ans;
 }
 
-std::map<std::string, int> mapping(std::vector<std::string> frases){
-    return {};
+std::string mapping(std::vector<std::string> frases){
+    std::string ans;
+    std::map<std::string, int> map;
+    for(std::string frase: frases){
+        if(map[frase])
+            map[frase] += 1;
+        else
+            map[frase] = 1;
+    }
+    auto it = map.begin();
+    while (it != map.end()) {
+        ans += it->first + ": " + std::to_string(it->second) + "\n";
+        it++;
+    }
+    return ans;
 }
 
 

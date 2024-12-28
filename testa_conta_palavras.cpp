@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include "./conta_palavras.hpp"
 #define CATCH_CONFIG_MAIN
 #include "./catch.hpp"
@@ -19,17 +20,7 @@ TEST_CASE("Teste de iteracao") {
 TEST_CASE("Teste de mapping") {
     std::vector<std::string> base = {"Este", "texto", "é", "o",
         "texto", "que", "será", "utilizado"};
-
-    std::map<std::string, int> esperado = {
-        {"é", 1},
-        {"este", 1},
-        {"o", 1},
-        {"que", 1},
-        {"será", 1},
-        {"texto", 2},
-        {"utilizado", 1}
-    };
-
+    std::string esperado = "Este: 1\no: 1\nque: 1\nserá: 1\ntexto: 2\nutilizado: 1\né: 1\n";
     REQUIRE(mapping(base) == esperado);
 }
 
