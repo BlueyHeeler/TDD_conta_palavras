@@ -26,12 +26,10 @@ std::vector<std::string> iteraTXT(std::string frase) {
     auto it = frase.begin();
 
     while (it != frase.end()) {
-        // Ignorar espaços em branco
         while (it != frase.end() && std::isspace(*it)) {
             ++it;
         }
 
-        // Construir palavra até o próximo espaço
         palavra.clear();
         while (it != frase.end() && !std::isspace(*it)) {
             palavra += *it;
@@ -44,6 +42,10 @@ std::vector<std::string> iteraTXT(std::string frase) {
     }
 
     return ans;
+}
+
+std::map<std::string, int> mapping(std::vector<std::string> frases){
+    return {};
 }
 
 
