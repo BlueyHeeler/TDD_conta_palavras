@@ -20,8 +20,30 @@ std::string abrirTXT(std::string path) {
     return frase;
 }
 
-std::vector<std::string> iteraTXT(std::string frase){
-    return {};
+std::vector<std::string> iteraTXT(std::string frase) {
+    std::vector<std::string> ans;
+    std::string palavra;
+    auto it = frase.begin();
+
+    while (it != frase.end()) {
+        // Ignorar espaços em branco
+        while (it != frase.end() && std::isspace(*it)) {
+            ++it;
+        }
+
+        // Construir palavra até o próximo espaço
+        palavra.clear();
+        while (it != frase.end() && !std::isspace(*it)) {
+            palavra += *it;
+            ++it;
+        }
+
+        if (!palavra.empty()) {
+            ans.push_back(palavra);
+        }
+    }
+
+    return ans;
 }
 
 
