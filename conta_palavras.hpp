@@ -3,4 +3,4 @@
 #include<string>
 using namespace std;
 
-abrirTXT(std::string);
+std::string abrirTXT(std::string);
